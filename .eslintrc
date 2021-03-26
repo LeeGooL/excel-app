@@ -12,7 +12,12 @@
 		"no-tabs": "off",
 		"indent": ["error", "tab"],
 		"object-curly-spacing": "off",
-		"comma": "off"
+		"comma": "off",
+		"linebreak-style": ["off", "windows"],
+		"no-trailing-spaces": "off",
+		"quotes": ["error", "single"],
+		"operator-linebreak": "off",
+		"no-unused-vars": "warn",
 	},
 	"extends": ["eslint:recommended", "google"]
 }
