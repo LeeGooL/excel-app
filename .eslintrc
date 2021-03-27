@@ -18,6 +18,7 @@
 		"quotes": ["error", "single"],
 		"operator-linebreak": "off",
 		"no-unused-vars": "warn",
+		"max-len": ["error", 100]
 	},
 	"extends": ["eslint:recommended", "google"]
 }

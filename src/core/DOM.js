@@ -1,10 +1,49 @@
 // утилита, упрощающая взаимодействие с dom-деревом
 class DOM {
-	constructor() {}
+	constructor(selector) {
+		// #app
+		this.$el =
+			typeof selector === 'string'
+				? document.querySelector(selector)
+				: selector;
+	}
+
+	html(html) {
+		if (typeof html === 'string') {
+			this.$el.innerHTML = html;
+
+			return this;
+		}
+
+		return this.$el.outerHTML.trim(); // trim - удаляет лишние пробелы в начале и в конце строки
+	}
+
+	clear() {
+		this.html('');
+
+		return this;
+	}
+
+	on() {}
+
+	append(node) {
+		if (node instanceof DOM) {
+			node = node.$el;
+		}
+
+		if (Element.prototype.append) {
+			this.$el.append(node);
+		} else {
+			this.$el.appendChild(node);
+		}
+
+		return this;
+	}
 }
 
-export function $() {
-	return new DOM();
+// event.target
+export function $(selector) {
+	return new DOM(selector);
 }
 
 $.create = (tagName, classes = '') => {
@@ -14,5 +53,5 @@ $.create = (tagName, classes = '') => {
 		el.classList.add(classes);
 	}
 
-	return el;
+	return $(el);
 };
