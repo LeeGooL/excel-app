@@ -3,7 +3,7 @@ import { ExcelComponent } from '@core/ExcelComponent';
 export class Header extends ExcelComponent {
 	static className = 'excel__header';
 
-	constuctor($root) {
+	constructor($root) {
 		super($root, {
 			name: 'Toolbar',
 			listeners: ['click'],
@@ -26,7 +26,5 @@ export class Header extends ExcelComponent {
 		`;
 	}
 
-	onClick(event) {
-		
-	}
+	onClick(event) {}
 }

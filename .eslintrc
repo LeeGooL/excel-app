@@ -15,10 +15,11 @@
 		"comma": "off",
 		"linebreak-style": ["off", "windows"],
 		"no-trailing-spaces": "off",
-		"quotes": ["error", "single"],
+		"quotes": ["off", "single"],
 		"operator-linebreak": "off",
 		"no-unused-vars": "warn",
-		"max-len": ["error", 100]
+		"max-len": ["error", 100],
+		"space-before-function-paren": "off",
 	},
 	"extends": ["eslint:recommended", "google"]
 }
