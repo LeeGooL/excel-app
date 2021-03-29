@@ -3,6 +3,13 @@ import { ExcelComponent } from '@core/ExcelComponent';
 export class Header extends ExcelComponent {
 	static className = 'excel__header';
 
+	constuctor($root) {
+		super($root, {
+			name: 'Toolbar',
+			listeners: ['click'],
+		});
+	}
+
 	toHTML() {
 		return `
 			<input class="input" type="text" value="Новая таблица" />
@@ -17,5 +24,9 @@ export class Header extends ExcelComponent {
 				</div>
 			</div>
 		`;
+	}
+
+	onClick(event) {
+		
 	}
 }

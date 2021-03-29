@@ -11,7 +11,6 @@ export class DOMListener {
 	}
 
 	initDOMListeners() {
-		// console.log(this.listeners);
 		this.listeners.forEach((listener) => {
 			const method = getMethodName(listener);
 
@@ -21,12 +20,19 @@ export class DOMListener {
 				);
 			}
 
+			this[method] = this[method].bind(this);
 			// эквивалент addEventListener
-			this.$root.on(listener, this[method].bind(this));
+			this.$root.on(listener, this[method]);
 		});
 	}
 
-	removeDOMListeners() {}
+	removeDOMListeners() {
+		this.listeners.forEach((listener) => {
+			const method = getMethodName(listener);
+
+			this.$root.off(listener, this[method]);
+		});
+	}
 }
 
 // Input => onInput
